@@ -10,5 +10,13 @@
     "test": "echo \"Error: no test specified\""
   },
   "author": "Amirali Sadrzadeh",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amiralis1365/React-Native-Code-Input.git"
+  },
+  "bugs": {
+    "url": "https://github.com/amiralis1365/React-Native-Code-Input/issues"
+  },
+  "homepage": "https://github.com/amiralis1365/React-Native-Code-Input"
 }
