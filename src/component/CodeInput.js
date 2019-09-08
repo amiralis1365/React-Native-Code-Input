@@ -56,7 +56,7 @@ class CodeInput extends Component{
 	};
 
 	renderInputs = () => {
-		const {returnKeyType, keyboardType, textAlign, inputContainerStyle, inputStyle} = this.props;
+		const {returnKeyType, keyboardType, inputContainerStyle, inputStyle} = this.props;
 		const { input_style, text_style } = styles;
 		return this.state.values.map((value, index) => (
 			<View key={index} style={{...input_style, ...inputContainerStyle}}>
@@ -68,7 +68,6 @@ class CodeInput extends Component{
 					maxLength={1}
 					value={this.state.values[index]}
 					ref={input => index===this.state.focused?this.input=input:0}
-					textAlign={textAlign}
 					keyboardType={keyboardType}
 					returnKeyType={returnKeyType}
 				/>
@@ -95,7 +94,6 @@ CodeInput.defaultProps = {
 	length: 6,
 	keyboardType: 'numeric',
 	returnKeyType: 'done',
-	textAlign: 'center',
 	inputContainerStyle: {},
 	containerStyle: {},
 	inputStyle: {}
