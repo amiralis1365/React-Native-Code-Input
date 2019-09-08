@@ -20,7 +20,7 @@ npm install --save React-Native-Code-Input
 ## Usage
 
 ```javascript
-import CodeInput from 'react-native-code-input';
+import {CodeInput} from '@amiralis1365/react-native-code-input';
 
 const App = () => {
     return (

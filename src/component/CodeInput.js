@@ -66,6 +66,7 @@ class CodeInput extends Component{
 					onKeyPress={this.keyPress}
 					onChangeText={(value) => this.onChangeText(index, value)}
 					maxLength={1}
+					textAlign={'center'}
 					value={this.state.values[index]}
 					ref={input => index===this.state.focused?this.input=input:0}
 					keyboardType={keyboardType}

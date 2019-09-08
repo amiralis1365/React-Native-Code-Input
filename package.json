@@ -1,9 +1,8 @@
 {
   "name": "@amiralis1365/react-native-code-input",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A React Native Component to have confirmation Code Inputs.",
   "main": "src/index.js",
-  "private": false,
   "directories": {
     "example": "example"
   },
