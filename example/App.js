@@ -9,7 +9,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import CodeInput from './src/component/CodeInput';
+import {CodeInput} from '@amiralis1365/react-native-code-input';
 
 const App = () => {
     return (

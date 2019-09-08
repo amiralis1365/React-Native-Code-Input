@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A React Native Component to have confirmation Code Inputs.",
   "main": "src/index.js",
+  "private": false,
   "directories": {
     "example": "example"
   },
