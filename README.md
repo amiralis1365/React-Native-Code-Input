@@ -14,7 +14,7 @@ React-Native-Code-Input is an easy to use React Native Component for Confirmatio
 use `npm` to install the package
 
 ```bash
-npm install --save React-Native-Code-Input
+npm install --save @geniusdevs/react-native-code-input
 ```
 
 ## Usage
