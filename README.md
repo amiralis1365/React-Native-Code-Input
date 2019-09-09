@@ -43,11 +43,13 @@ const App = () => {
 | inputStyle | Style of each `TextInput`  | {} |
 
 ### Events
-| Attribute | Description |
+| Event | Description |
 | --- | --- |
 | onValueChange | An event to get the value of inputs as a `string` |
 | onClick | This event is called whenever one of the inputs is touched |
 | onKeyPress | This event is called whenever a keyboard button is pressed |
+| onFinish | This event is called whenever the whole code is entered.<br/>This event is useful when you want to verify the code as soon as the last digit in entered. |
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

@@ -18,5 +18,6 @@
   "bugs": {
     "url": "https://github.com/amiralis1365/React-Native-Code-Input/issues"
   },
-  "homepage": "https://github.com/amiralis1365/React-Native-Code-Input"
+  "homepage": "https://github.com/amiralis1365/React-Native-Code-Input",
+  "keywords": ["react-native", "Validation", "Confirmation", "Input"]
 }

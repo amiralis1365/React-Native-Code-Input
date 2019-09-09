@@ -26,6 +26,9 @@ class CodeInput extends Component{
 		let focused = code.length;
 		this.setState({focused, code, values});
 		this.props.onValueChange(code);
+		if (code.length===this.props.length){
+			this.props.onFinish(code);
+		}
 	};
 
 	componentDidUpdate(){
@@ -91,6 +94,7 @@ CodeInput.defaultProps = {
 	onValueChange: (value) => value,
 	onClick: () => {},
 	onKeyPress: () => {},
+	onFinish: () => {},
 	enabled: true,
 	length: 6,
 	keyboardType: 'numeric',
