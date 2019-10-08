@@ -63,10 +63,11 @@ class CodeInput extends Component{
 	};
 
 	renderInputs = () => {
-		const {returnKeyType, keyboardType, inputContainerStyle, inputStyle, length} = this.props;
+		const { returnKeyType, keyboardType, inputContainerStyle, inputStyle, length, focusedInputStyle } = this.props;
+		const { focused, values } = this.state;
 		const { input_style, text_style } = styles;
-		return this.state.values.map((value, index) => (
-			<View key={index} style={{...input_style, ...inputContainerStyle}}>
+		return values.map((value, index) => (
+			<View key={index} style={{...input_style, ...inputContainerStyle, ...(index===focused?focusedInputStyle:{})}}>
 				<TextInput
 					style={{...text_style, ...inputStyle}}
 					onFocus={() => this.setCursor()}
@@ -74,8 +75,8 @@ class CodeInput extends Component{
 					onChangeText={(value) => this.onChangeText(index, value)}
 					maxLength={length - index}
 					textAlign={'center'}
-					value={this.state.values[index]}
-					ref={input => index===this.state.focused?this.input=input:0}
+					value={values[index]}
+					ref={input => index===focused?this.input=input:0}
 					keyboardType={keyboardType}
 					returnKeyType={returnKeyType}
 				/>
@@ -94,22 +95,6 @@ class CodeInput extends Component{
 	}
 }
 
-CodeInput.defaultProps = {
-	onValueChange: (value) => value,
-	onClick: () => {},
-	onKeyPress: () => {},
-	onFinish: () => {},
-	enabled: true,
-	length: 6,
-	keyboardType: 'numeric',
-	returnKeyType: 'done',
-	inputContainerStyle: {},
-	containerStyle: {},
-	inputStyle: {}
-};
-
-export default CodeInput;
-
 const styles = StyleSheet.create({
 	container:{
 		flexDirection: "row",
@@ -122,9 +107,29 @@ const styles = StyleSheet.create({
 		marginHorizontal: 5,
 		width: 20
 	},
+	focused_input_style: {
+		borderBottomColor: "green",
+	},
 	text_style:{
 		fontSize: 16,
 		color: "black",
 		paddingBottom: 5
 	}
 });
+
+CodeInput.defaultProps = {
+	onValueChange: (value) => value,
+	onClick: () => {},
+	onKeyPress: () => {},
+	onFinish: () => {},
+	enabled: true,
+	length: 6,
+	keyboardType: 'numeric',
+	returnKeyType: 'done',
+	inputContainerStyle: {},
+	containerStyle: {},
+	inputStyle: {},
+	focusedInputStyle: styles.focused_input_style
+};
+
+export default CodeInput;

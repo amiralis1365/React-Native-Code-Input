@@ -41,6 +41,7 @@ const App = () => {
 | inputContainerStyle | Style of the each input `View` container | {} |
 | containerStyle | Style of the `View` container | {} |
 | inputStyle | Style of each `TextInput`  | {} |
+| focusedInputStyle | Style of the container of focused `TextInput`  | {borderBottomColor: 'green'} |
 
 ### Events
 | Event | Description |
