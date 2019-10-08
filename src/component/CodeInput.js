@@ -16,14 +16,20 @@ class CodeInput extends Component{
 	setCursor = () => {
 		this.props.onClick();
 		let focused = this.state.code.length;
-		this.setState({...this.state, focused});
+		this.setState({focused});
 	};
 
 	onChangeText = (index, val) =>{
+		let newVal = val.split('');
 		let values = this.state.values.slice();
-		values[index] = val;
+		let i = index;
+		newVal.map(val => {
+			if (i < this.props.length){
+				values[i++] = val;
+			}	
+		})
 		let code = values.join('');
-		let focused = code.length;
+		let focused = code.length === this.props.length? code.length - 1: code.length;
 		this.setState({focused, code, values});
 		this.props.onValueChange(code);
 		if (code.length===this.props.length){
@@ -44,22 +50,20 @@ class CodeInput extends Component{
 		}
 	}
 
-	keyPress = ({nativeEvent}) => {
-		this.props.onKeyPress(nativeEvent);
-		if (nativeEvent.key === 'Backspace'){
-			let focused = (this.state.focused !== 0)? this.state.focused - 1: 0;
+	keyPress = (e) => {
+		this.props.onKeyPress(e.nativeEvent);
+		if (e.nativeEvent.key === 'Backspace'){
+			e.preventDefault();
 			let values = [...this.state.values];
-			if (values[this.state.focused] === "") {
-				values[this.state.focused - 1] = '';
-			}
-			let code = values.join('');
+			values[this.state.code.length - 1] = '';
+			const code = values.join('');
+			const focused = (this.state.focused !== 0)? this.state.focused - 1: 0;
 			this.setState({focused, values, code});
-			this.props.onValueChange(code);
 		}
 	};
 
 	renderInputs = () => {
-		const {returnKeyType, keyboardType, inputContainerStyle, inputStyle} = this.props;
+		const {returnKeyType, keyboardType, inputContainerStyle, inputStyle, length} = this.props;
 		const { input_style, text_style } = styles;
 		return this.state.values.map((value, index) => (
 			<View key={index} style={{...input_style, ...inputContainerStyle}}>
@@ -68,7 +72,7 @@ class CodeInput extends Component{
 					onFocus={() => this.setCursor()}
 					onKeyPress={this.keyPress}
 					onChangeText={(value) => this.onChangeText(index, value)}
-					maxLength={1}
+					maxLength={length - index}
 					textAlign={'center'}
 					value={this.state.values[index]}
 					ref={input => index===this.state.focused?this.input=input:0}

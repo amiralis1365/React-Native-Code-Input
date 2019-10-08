@@ -8,7 +8,7 @@
 
 import React from 'react';
 import {View} from 'react-native';
-import {CodeInput} from '@amiralis1365/react-native-code-input';
+import CodeInput from '@geniusdevs/react-native-code-input';
 
 const App = () => {
     return (
